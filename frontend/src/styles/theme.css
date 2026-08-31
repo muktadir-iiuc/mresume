@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Abyss — colour tokens lifted verbatim from the VS Code "Abyss" theme
+   (resources/app/extensions/theme-abyss/themes/abyss-color-theme.json)
+   ========================================================================== */
+
+:root {
+  /* Surfaces */
+  --abyss-editor: #000c18; /* editor.background */
+  --abyss-sidebar: #060621; /* sideBar.background */
+  --abyss-panel: #10192c; /* statusBar / titleBar / tab.inactive */
+  --abyss-activity: #051336; /* activityBar.background */
+  --abyss-input: #181f2f; /* input.background */
+  --abyss-widget: #262641; /* editorWidget.background */
+  --abyss-tabs: #1c1c2a; /* editorGroupHeader.tabsBackground */
+  --abyss-button: #2b3c5d; /* button.background */
+  --abyss-line: #082050; /* editor.lineHighlightBackground */
+  --abyss-list-active: #08286b; /* list.activeSelectionBackground */
+  --abyss-list-hover: #061940; /* list.hoverBackground */
+  --abyss-hover-widget: #000c38; /* editorHoverWidget.background */
+
+  /* Lines */
+  --abyss-border: #2b2b4a; /* panel.border / tab.border */
+  --abyss-focus: #596f99; /* focusBorder */
+  --abyss-guide: #002952; /* editorIndentGuide.background */
+  --abyss-guide-active: #204972; /* editorIndentGuide.activeBackground */
+
+  /* Syntax */
+  --abyss-fg: #6688cc; /* editor.foreground */
+  --abyss-comment: #384887; /* comment */
+  --abyss-gold: #ddbb88; /* function name / cursor */
+  --abyss-cream: #ffeebb; /* class name */
+  --abyss-purple: #9966b8; /* storage.type / support */
+  --abyss-green: #22aa44; /* string */
+  --abyss-pink: #f280d0; /* numeric constant */
+  --abyss-blue: #2277ff; /* variable.parameter */
+  --abyss-keyword: #225588; /* keyword */
+  --abyss-badge: #0063a5; /* badge / progressBar / link */
+  --abyss-crimson: #770811; /* editor.selectionBackground */
+  --abyss-error: #a22d44; /* invalid */
+  --abyss-line-nr: #406385; /* editorLineNumber.foreground */
+  --abyss-line-nr-active: #80a2c2;
+
+  /* Semantic aliases used through the site */
+  --bg: var(--abyss-editor);
+  --bg-deep: var(--abyss-sidebar);
+  --surface: var(--abyss-panel);
+  --surface-raised: var(--abyss-input);
+  --surface-float: var(--abyss-widget);
+  --border: var(--abyss-border);
+  --border-hi: var(--abyss-focus);
+
+  --text: #c5d6f0;
+  --text-soft: #8fa9d4;
+  --text-muted: var(--abyss-fg);
+  --text-dim: var(--abyss-line-nr);
+  --accent: var(--abyss-gold);
+  --accent-hi: var(--abyss-cream);
+  --link: #4d9fe0;
+
+  /* Type */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+
+  /* Geometry */
+  --rail: 56px;
+  --tabbar: 44px;
+  --statusbar: 26px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 18px 50px -18px rgba(0, 0, 0, 0.85);
+  --shadow-hi: 0 22px 60px -20px rgba(0, 60, 140, 0.55);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Reset
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--tabbar) + 24px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.18s var(--ease);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--abyss-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--abyss-crimson);
+  color: #fff;
+}
+
+/* Scrollbar — mirrors scrollbarSlider.* from the theme */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--abyss-editor);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2230;
+  border-radius: 8px;
+  border: 2px solid var(--abyss-editor);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3f51;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

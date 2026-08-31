@@ -1,0 +1,3 @@
+# Starts the Vite dev server on http://localhost:5173
+Set-Location "$PSScriptRoot\frontend"
+npm run dev
